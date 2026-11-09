@@ -1,0 +1,23 @@
+[package]
+name = "open_chiron"
+version = "0.1.0"
+edition = "2024"
+license = "GPL-2.0-or-later"
+description = "Moteur souverain d'analyse de données complexes et de visualisation de graphes"
+
+[dependencies]
+eframe = "0.29"
+petgraph = "0.6"
+ndarray = "0.16"
+tokio = { version = "1", features = ["rt-multi-thread", "net", "io-util", "fs"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rand = "0.8"
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
